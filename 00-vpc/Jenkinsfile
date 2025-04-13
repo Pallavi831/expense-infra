@@ -17,9 +17,10 @@ pipeline {
     stages {
         stage('Init') { 
             steps {
-                sh 'cd 00-vpc'
-                sh 'terraform init --reconfigure' 
-                //sleep 10
+                sh """
+                    cd 00-vpc
+                    terraform init --reconfigure
+              """
                 
             }
         }
