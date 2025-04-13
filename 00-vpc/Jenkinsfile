@@ -28,6 +28,24 @@ pipeline {
                 }
             }
         }
+
+        stage('Apply or Destroy') { 
+            steps {
+                withAWS(region: 'us-east-1', credentials: 'aws-creds') {
+                    sh """
+                        cd 00-vpc
+                        if [ ${params.ACTION} == 'apply']
+                        then
+                            terraform apply -auto-approve tfplan
+                        elif [ ${params.ACTION} == 'destroy']
+                        then 
+                            terraform apply -auto-approve
+                        fi
+
+                    """
+                }
+            }
+        }
     }
        
     
