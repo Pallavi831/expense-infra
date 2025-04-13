@@ -42,7 +42,7 @@ pipeline {
                         cd 00-vpc
                         if [ ${params.ACTION} == 'apply']
                         then
-                            terraform apply "tfplan"
+                            terraform apply -auto-approve tfplan
                         elif [ ${params.ACTION} == 'destroy']
                         then 
                             terraform destroy -auto-approve
@@ -52,6 +52,9 @@ pipeline {
                 }
             }
         }
+        stage ('Trigger SG') {
+            build job: '10-sg', parameters: [[$class: 'ChoiceParameterValue', name: 'ACTION', value: 'apply']]
+}
     }
        
     
