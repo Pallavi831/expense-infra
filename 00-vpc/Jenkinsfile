@@ -39,7 +39,7 @@ pipeline {
                             terraform apply -auto-approve tfplan
                         elif [ ${params.ACTION} == 'destroy']
                         then 
-                            terraform apply -auto-approve
+                            terraform destroy -auto-approve
                         fi
 
                     """
