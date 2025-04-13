@@ -16,7 +16,7 @@ pipeline {
         
     }
     stages {
-        stage('Init and plan') { 
+        stage('Init and Plan') { 
             steps {
                 withAWS(region: 'us-east-1', credentials: 'aws-creds') {
                     sh """
