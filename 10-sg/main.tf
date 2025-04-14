@@ -5,6 +5,7 @@ module "mysql_sg" {
     sg_name = "mysql"
     vpc_id = local.vpc_id
     common_tags = var.common_tags
+    sg_description = "Security group for Mysql"
     sg_tags = var.mysql_sg_tags
 }
 
@@ -26,7 +27,7 @@ module "node_sg" {
     sg_name = "node"
     vpc_id = local.vpc_id
     common_tags = var.common_tags
-    #sg_tags = var.node_sg_tags
+    sg_description = "Security group for node"
 }
 
 module "eks_control_plane_sg" {
@@ -36,7 +37,7 @@ module "eks_control_plane_sg" {
     sg_name = "eks-control-plane"
     vpc_id = local.vpc_id
     common_tags = var.common_tags
-    #sg_tags = var.node_sg_tags
+    sg_description = "Security group for eks control plane"
 }
 
 module "ingress_alb_sg" {
@@ -46,7 +47,7 @@ module "ingress_alb_sg" {
     sg_name = "ingress-alb"
     vpc_id = local.vpc_id
     common_tags = var.common_tags
-    #sg_tags = var.node_sg_tags
+    sg_description = "Security group for ingress alb"
 }
 
 resource "aws_security_group_rule" "ingress_alb_https" {
