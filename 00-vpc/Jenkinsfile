@@ -57,9 +57,10 @@ pipeline {
                 build job: '10-sg', parameters: [string(name: 'ACTION', value: 'apply')], wait= false
             }
         }
-    }
+        }
+    }    
        
-    
+   
     post {
         always{
             echo "This sections runs always"
@@ -77,4 +78,6 @@ pipeline {
     }
 
 }
+
+
 
