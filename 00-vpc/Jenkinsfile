@@ -51,7 +51,7 @@ pipeline {
                     """
                 }
             }
-        }    
+            
         
         stage ('Trigger SG') {
             steps{
@@ -59,7 +59,9 @@ pipeline {
             }
         }
         }
-    }    
+    } 
+
+}   
        
    
     post {
