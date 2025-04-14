@@ -1,26 +1,25 @@
 module "mysql_sg" {
-  #source = "../terraform-aws-securitygroup"
-  source = "git::https://github.com/pallavi831/terraform-aws-securitygroup.git?ref=main"
-  project_name = var.project_name
-  environment = var.environment
-  sg_name = "mysql"
-  vpc_id = local.vpc_id
-  common_tags = var.common_tags
-  sg_tags = var.mysql_sg_tags
-  }
+    source = "git::https://github.com/pallavi831/terraform-aws-security-group.git?ref=main"
+    project_name = var.project_name
+    environment = var.environment
+    sg_name = "mysql"
+    vpc_id = local.vpc_id
+    common_tags = var.common_tags
+    sg_tags = var.mysql_sg_tags
+}
 
 module "bastion_sg" {
-  source = "git::https://github.com/pallavi831/terraform-aws-securitygroup.git?ref=main"
-  project_name = var.project_name
-  environment = var.environment
-  sg_name = "bastion"
-  vpc_id = local.vpc_id
-  common_tags = var.common_tags
-  sg_tags = var.bastion_sg_tags
-  }
+    source = "git::https://github.com/pallavi831/terraform-aws-security-group.git?ref=main"
+    project_name = var.project_name
+    environment = var.environment
+    sg_name = "bastion"
+    vpc_id = local.vpc_id
+    common_tags = var.common_tags
+    sg_tags = var.bastion_sg_tags
+}
 
 module "node_sg" {
-    source = "git::https://github.com/daws-81s/terraform-aws-security-group.git?ref=main"
+    source = "git::https://github.com/pallavi831/terraform-aws-security-group.git?ref=main"
     project_name = var.project_name
     environment = var.environment
     sg_name = "node"
@@ -30,7 +29,7 @@ module "node_sg" {
 }
 
 module "eks_control_plane_sg" {
-    source = "git::https://github.com/daws-81s/terraform-aws-security-group.git?ref=main"
+    source = "git::https://github.com/pallavi831/terraform-aws-security-group.git?ref=main"
     project_name = var.project_name
     environment = var.environment
     sg_name = "eks-control-plane"
@@ -40,7 +39,7 @@ module "eks_control_plane_sg" {
 }
 
 module "ingress_alb_sg" {
-    source = "git::https://github.com/daws-81s/terraform-aws-security-group.git?ref=main"
+    source = "git::https://github.com/pallavi831/terraform-aws-security-group.git?ref=main"
     project_name = var.project_name
     environment = var.environment
     sg_name = "ingress-alb"
@@ -139,15 +138,3 @@ resource "aws_security_group_rule" "mysql_node" {
   source_security_group_id = module.node_sg.id
   security_group_id = module.mysql_sg.id
 }
-
-
-
-
-
-
-
-
-
-
-
-
