@@ -47,7 +47,7 @@ module "ingress_alb_sg" {
     sg_name = "ingress-alb"
     vpc_id = local.vpc_id
     common_tags = var.common_tags
-    # sg_description = "Security group for ingress alb"
+    sg_description = "Security group for ingress alb"
 }
 
 resource "aws_security_group_rule" "ingress_alb_https" {
