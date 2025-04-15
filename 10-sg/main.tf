@@ -27,7 +27,7 @@ module "node_sg" {
     sg_name = "node"
     vpc_id = local.vpc_id
     common_tags = var.common_tags
-    #sg_description = "Security group for node"
+    sg_description = "Security group for node"
 }
 
 module "eks_control_plane_sg" {
