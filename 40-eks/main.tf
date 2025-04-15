@@ -1,9 +1,14 @@
-resource "aws_key_pair" "eks" {
-  key_name = "expense-eks"
-  #public_key = file("~/.ssh/eks.rsa.pub")
-  public_key = file("ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILX4T9133E0TqFIi/An39oqhGNg4md70fchfa33GuSfo Pallavi@LAPTOP-N1I0EAPD")
+# resource "aws_key_pair" "eks" {
+#   key_name = "expense-eks"
+#   #public_key = file("~/.ssh/eks.rsa.pub")
+#   public_key = file("C:\\devops\\daws-82s\\daws-82s.pub")
   
+# }
+resource "aws_key_pair" "eks" {
+  key_name   = "eks-key"
+  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILX4T9133E0TqFIi/An39oqhGNg4md70fchfa33GuSfo Pallavi@LAPTOP-N1I0EAPD"
 }
+
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.0"
