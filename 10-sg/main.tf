@@ -16,7 +16,7 @@ module "bastion_sg" {
     sg_name = "bastion"
     vpc_id = local.vpc_id
     common_tags = var.common_tags
-    # sg_description = "Security group for Bastion Host"
+    sg_description = "Security group for Bastion Host"
     sg_tags = var.bastion_sg_tags
 }
 
