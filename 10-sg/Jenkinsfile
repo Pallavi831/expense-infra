@@ -30,12 +30,12 @@ pipeline {
         }
 
         stage('Apply or Destroy') { 
-            // input {
-            //     message "Should we continue to ${params.ACTION}"
-            //     ok "Yes, we should."
+            input {
+                message "Should we continue to ${params.ACTION}"
+                ok "Yes, we should."
                
                 
-            // }
+            }
             steps {
                 withAWS(region: 'us-east-1', credentials: 'aws-creds') {
                     sh """
@@ -50,6 +50,15 @@ pipeline {
 
                     """
                 }
+            }
+        }
+
+        stage ('Destroy VPC') {
+            when{
+                expression { params.action == "destroy" }
+            }
+            steps{
+                build job: '00-vpc', parameters: [string(name: 'ACTION', value: 'destroy')], wait: false
             }
         }
     }
