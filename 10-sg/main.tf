@@ -37,7 +37,7 @@ module "eks_control_plane_sg" {
     sg_name = "eks-control-plane"
     vpc_id = local.vpc_id
     common_tags = var.common_tags
-    #sg_description = "Security group for eks control plane"
+    sg_description = "Security group for eks control plane"
 }
 
 module "ingress_alb_sg" {
