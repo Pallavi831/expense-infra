@@ -7,7 +7,7 @@ module "alb" {
   vpc_id  = data.aws_ssm_parameter.vpc_id.value
   subnets = local.public_subnet_ids
   create_security_group = false
-  security_groups = [local.alb_ingress_sg_id]
+  #ecurity_groups = [local.alb_ingress_sg_id]
   enable_deletion_protection = false
 
   tags = merge(
