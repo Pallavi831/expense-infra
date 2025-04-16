@@ -28,7 +28,7 @@ pipeline {
                 }
             }
         }
-
+    
         stage('Apply or Destroy') { 
             input {
                 message "Should we continue to ${params.ACTION}"
@@ -56,16 +56,13 @@ pipeline {
         stage ('Trigger SG') {
             when{
                 expression { params.ACTION == 'apply' }
+            }
             steps{
                 build job: '10-sg', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
             }
         }
+    }
         
-    } 
-
- 
-       
-   
     post {
         always{
             echo "This sections runs always"
@@ -83,6 +80,7 @@ pipeline {
     }
 
 }
+
 
 
 
