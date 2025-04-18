@@ -73,12 +73,17 @@ pipeline {
                 }
                 stage('acm') {
                     steps {
-                        build job: '50-acm', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
+                        build job: '50-acm', parameters: [string(name: 'ACTION', value: 'apply')]
                     }
                 }
                 stage('ecr') {
                     steps {
                         build job: '70-ecr', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
+                    }
+                }
+                stage('rds') {
+                    steps {
+                        build job: '30-rds', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
                     }
                 }
             }
@@ -94,7 +99,7 @@ pipeline {
                         build job: '60-alb', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
                     }
                 }
-                stage('rdn') {
+                stage('cdn') {
                     steps {
                         build job: '80-cdn', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
                     }

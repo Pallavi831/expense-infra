@@ -72,6 +72,11 @@ pipeline {
                         build job: '20-bastion', parameters: [string(name: 'ACTION', value: 'destroy')], wait: false
                     }
                 }
+                stage('rds') {
+                    steps {
+                        build job: '30-rds', parameters: [string(name: 'ACTION', value: 'destroy')], wait: false
+                    }
+                }
             }
         }
 
