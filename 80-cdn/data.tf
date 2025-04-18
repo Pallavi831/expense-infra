@@ -9,3 +9,7 @@ data "aws_cloudfront_cache_policy" "CacheEnable" {
 # data "aws_ssm_parameter" "https_certificate_arn" {
 #   name  = "/${var.project_name}/${var.environment}/web_alb_certificate_arn"
 # }
+
+data "aws_ssm_parameter" "https_certificate_arn" {
+  name = "/${var.project_name}/${var.environment}/https_certificate_arn"
+}
