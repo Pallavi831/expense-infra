@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket         = "rushika-remote-state-dev"
-    key            = "expense-alb" # you should have unique keys with in the bucket, same key should not be used in other repo
+    key            = "expense-alb-ingress" # you should have unique keys with in the bucket, same key should not be used in other repo
     region         = "us-east-1"
     dynamodb_table = "rushika-remote-state-dev"
  }
