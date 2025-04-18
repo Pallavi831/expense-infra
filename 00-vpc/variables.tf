@@ -25,6 +25,12 @@ variable "common_tags" {
   
 }
 
+variable "vpc_tags" {
+    default = {
+        Purpose = "assignment"
+    }
+}
+
 
 
 variable "public_subnet_cidrs" {
