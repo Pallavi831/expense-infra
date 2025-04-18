@@ -63,6 +63,7 @@ module "db" {
     var.common_tags,
     {
       Name = local.resource_name
+      Name = "rds-subnet-group"
     }
   )
 }
