@@ -23,6 +23,8 @@ pipeline {
                         cd 40-eks
                         terraform init -reconfigure
                         terraform plan -out=tfplan
+                        terraform init -upgrade
+
                     
                     """
                 }
