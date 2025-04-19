@@ -1,3 +1,4 @@
+# Project-related variables
 variable "project_name" {
    default = "expense"
 }
@@ -6,16 +7,16 @@ variable "environment" {
    default = "dev"
 }
 
-
-
+# Common tags to be applied to resources
 variable "common_tags" {
     default = {
-        project = "expense"
+        project     = "expense"
         environment = "dev"
-        terraform = "true"
+        terraform   = "true"
     }
 }
 
+# Route53 zone details
 variable "zone_id" {
    default = "Z01493333OTCQL5SPZ0M1"
 }
@@ -24,33 +25,3 @@ variable "domain_name" {
    default = "rushika.site"
 }
 
-# variable "zone_name" {
-#    default = "rushika.site"
-# }
-
-# variable "project_name" {
-#     default = "expense"
-# }
-
-# variable "environment" {
-#     default = "dev"
-# }
-
-# variable "common_tags" {
-#     default = {
-#         Project = "expense"
-#         Terraform = "true"
-#         Environment = "dev"
-#     }
-# }
-
-# variable "ingress_alb_tags" {
-#     default = {
-#         Component = "web-alb"
-#     }
-# }
-
-
-# variable "zone_name" {
-#     default = "rushika.site"
-# }
