@@ -3,7 +3,7 @@ module "alb" {
   source = "terraform-aws-modules/alb/aws"
   internal = false
 
-  name    = "${var.project_name}-${var.environment}-ingress-alb"
+  name    = "${var.project_name}-${var.environment}-1-ingress-alb"
   vpc_id  = data.aws_ssm_parameter.vpc_id.value
   subnets = local.public_subnet_ids
   create_security_group = false
@@ -13,7 +13,7 @@ module "alb" {
   tags = merge(
     var.common_tags,
     {
-      Name = "${var.project_name}-${var.environment}-ingress-alb"
+      Name = "${var.project_name}-${var.environment}-1-ingress-alb"
     }
   )
 }
@@ -66,14 +66,14 @@ resource "aws_lb_listener_rule" "frontend" {
 
   condition {
     host_header {
-      values = ["expense-${var.environment}-1.${var.domain_name}"]
+      values = ["expense-${var.environment}.${var.domain_name}"]
     }
   }
 }
 
 resource "aws_route53_record" "web_alb" {
   zone_id = var.zone_id
-  name    = "expense-${var.environment}-1.${var.domain_name}"
+  name    = "expense-${var.environment}.${var.domain_name}"
   type    = "A"
 
   alias {
