@@ -1,29 +1,25 @@
 variable "project_name" {
-   default = "expense"
+    default = "expense"
 }
 
 variable "environment" {
-   default = "dev"
+    default = "dev"
 }
-
-
 
 variable "common_tags" {
     default = {
-        project = "expense"
-        environment = "dev"
-        terraform = "true"
+        Project = "expense"
+        Terraform = "true"
+        Environment = "dev"
     }
 }
 
-variable "zone_id" {
-   default = "Z01493333OTCQL5SPZ0M1"
-}
-
-variable "domain_name" {
-   default = "rushika.site"
+variable "frontend_tags" {
+    default = {
+        Component = "frontend"
+    }
 }
 
 variable "zone_name" {
-   default = "rushika.site"
+    default = "rushika.site"
 }
