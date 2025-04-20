@@ -1,27 +1,26 @@
-# Project-related variables
 variable "project_name" {
-   default = "expense"
+    default = "expense"
 }
 
 variable "environment" {
-   default = "dev"
+    default = "dev"
 }
 
-# Common tags to be applied to resources
 variable "common_tags" {
     default = {
-        project     = "expense"
-        environment = "dev"
-        terraform   = "true"
+        Project = "expense"
+        Terraform = "true"
+        Environment = "dev"
     }
 }
 
-# Route53 zone details
-variable "zone_id" {
-   default = "Z01493333OTCQL5SPZ0M1"
+variable "ingress_alb_tags" {
+    default = {
+        Component = "web-alb"
+    }
 }
 
-variable "domain_name" {
-   default = "rushika.site"
-}
 
+variable "zone_name" {
+    default = "rushika.site"
+}
