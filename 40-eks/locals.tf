@@ -1,5 +1,5 @@
 locals {
-  Name= "${var.project_name}-${var.environment}-1"
+  Name= "${var.project_name}-${var.environment}"
   vpc_id= data.aws_ssm_parameter.vpc_id.value
   eks_control_plane_sg_id= data.aws_ssm_parameter.eks_control_plane_sg_id.value
   node_sg_id= data.aws_ssm_parameter.node_sg_id.value
