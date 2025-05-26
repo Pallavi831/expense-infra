@@ -74,7 +74,7 @@ resource "aws_cloudfront_distribution" "expense" {
   )
 
   viewer_certificate {
-    acm_certificate_arn = "arn:aws:acm:us-east-1:557690626059:certificate/a08ca5bf-0bbf-40d2-891f-ca3382361056"
+    acm_certificate_arn = "arn:aws:acm:us-east-1:557690626059:certificate/95d84e00-46ad-4ed4-b24f-d251b755d888"
     ssl_support_method = "sni-only"
     minimum_protocol_version = "TLSv1.2_2021"
   }
