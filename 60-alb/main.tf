@@ -5,7 +5,7 @@ module "ingress_alb" {
   name    = "${local.resource_name}-ingress-alb" #expense-dev-app-alb
   vpc_id  = local.vpc_id
   subnets = local.public_subnet_ids
-  security_groups = [data.aws_ssm_parameter.ingress_alb_sg_id.value]
+  #security_groups = [data.aws_ssm_parameter.ingress_alb_sg_id.value]
   create_security_group = false
   enable_deletion_protection = false
   tags = merge(
@@ -35,7 +35,7 @@ resource "aws_lb_listener" "https" {
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = "arn:aws:acm:us-east-1:557690626059:certificate/b6a87027-5c80-4a20-af9e-1a96b72bc26d"
+  certificate_arn   = "arn:aws:acm:us-east-1:557690626059:certificate/e5905b51-5255-4a5a-a83d-2e495de377a7"
 
   default_action {
     type = "fixed-response"
